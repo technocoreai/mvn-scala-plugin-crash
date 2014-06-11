@@ -1,0 +1,50 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Test NEXT-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- scala-maven-plugin:3.1.6:add-source (default) @ test ---
+[INFO] Add Source directory: /private/tmp/tmpsh.5007/src/main/scala
+[INFO] Add Test Source directory: /private/tmp/tmpsh.5007/src/test/scala
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ test ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /private/tmp/tmpsh.5007/src/main/resources
+[INFO] 
+[INFO] --- scala-maven-plugin:3.1.6:compile (default) @ test ---
+[WARNING] Zinc server is not available at port 3030 - reverting to normal incremental compile
+[INFO] Using incremental compilation
+[INFO] 'compiler-interface' not yet compiled for Scala 2.11.0. Compiling...
+/var/folders/01/k2qjmc_9577_x_qdjj5kwpf00000gp/T/sbt_5ebb4eda/CompilerInterface.scala:246: error: recursive method rootLoader needs result type
+			override def rootLoader = if(resident) newPackageLoaderCompat(rootLoader)(compiler.classPath) else super.rootLoader
+                                                                                      ^
+/var/folders/01/k2qjmc_9577_x_qdjj5kwpf00000gp/T/sbt_5ebb4eda/CompilerInterface.scala:246: error: value rootLoader is not a member of scala.tools.nsc.backend.JavaPlatform
+			override def rootLoader = if(resident) newPackageLoaderCompat(rootLoader)(compiler.classPath) else super.rootLoader
+                                                                                                                                 ^
+/var/folders/01/k2qjmc_9577_x_qdjj5kwpf00000gp/T/sbt_5ebb4eda/CompilerInterface.scala:267: error: value RootClass is not a member of object Compiler.this.definitions
+							reSyncCompat(definitions.RootClass, Some(classPath), Some(oldEntry), Some(newEntry))
+                                                                                 ^
+/var/folders/01/k2qjmc_9577_x_qdjj5kwpf00000gp/T/sbt_5ebb4eda/CompilerInterface.scala:343: error: value RootClass is not a member of object Compiler.this.definitions
+			pkg == definitions.RootClass ||
+                                           ^
+/var/folders/01/k2qjmc_9577_x_qdjj5kwpf00000gp/T/sbt_5ebb4eda/CompilerInterface.scala:292: error: value EmptyPackageClass is not a member of object Compiler.this.definitions
+					invalidateOrRemove(definitions.EmptyPackageClass.asInstanceOf[ClassSymbol])
+                                                                       ^
+5 errors found
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 7.804 s
+[INFO] Finished at: 2014-06-11T20:57:52+04:00
+[INFO] Final Memory: 15M/363M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal net.alchim31.maven:scala-maven-plugin:3.1.6:compile (default) on project test: Execution default of goal net.alchim31.maven:scala-maven-plugin:3.1.6:compile failed. CompileFailed -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
