@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>test</groupId>
+    <artifactId>test</artifactId>
+    <version>NEXT-SNAPSHOT</version>
+    <name>Test</name>
+    <packaging>jar</packaging>
+
+    <properties>
+        <encoding>UTF-8</encoding>
+        <scala.version>2.11.0</scala.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-actors</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.11</artifactId>
+            <version>2.1.7</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <executions>
+                        <execution><id>default-compile</id><phase>none</phase></execution>
+                        <execution><id>default-testCompile</id><phase>none</phase></execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration><skipTests>true</skipTests></configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.1.6</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                            <goal>add-source</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <recompileMode>incremental</recompileMode>
+                    <useZincServer>true</useZincServer>
+                    <compileOrder>java-then-scala</compileOrder>
+                    <jvmArgs>
+                        <jvmArg>-Xms96m</jvmArg>
+                        <jvmArg>-Xmx1024m</jvmArg>
+                    </jvmArgs>
+                    <args>
+                        <arg>-deprecation</arg>
+                        <arg>-unchecked</arg>
+                    </args>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
